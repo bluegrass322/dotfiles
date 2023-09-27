@@ -1,1 +1,5 @@
 # dotfiles
+
+## Requirements
+- zsh
+- vim
