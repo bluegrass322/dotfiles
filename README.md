@@ -3,3 +3,4 @@
 ## Requirements
 - zsh
 - vim
+- starship

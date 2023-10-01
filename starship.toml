@@ -1,0 +1,27 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$time\
+\n$character"""
+
+[directory]
+format = "[$path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"
+
+[git_branch]
+format = "[on $branch ]($style)"
+
+[git_status]
+format = "[($all_status$ahead_behind )]($style)"
+
+[time]
+disabled = false
+time_format = "%T"
+format = '[$time ]($style)'
