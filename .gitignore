@@ -1,6 +1,8 @@
 /*
 /.**
 
+!/.config
+!/.config/starship.toml
 !/.gitignore
 !/README.md
 !/starship.toml
