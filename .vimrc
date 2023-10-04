@@ -35,9 +35,10 @@ set laststatus=2
 let mapleader = "\<Space>"
 
 " buffer
-nnoremap ;bc :bdelete<CR>
-nnoremap ;bc! :bdelete!<CR>
-nnoremap ;bn :enew<CR>
+nnoremap <silent> bc<CR> :bdelete<CR>
+nnoremap <silent> bc!<CR> :bdelete!<CR>
+nnoremap <silent> gp :bprev<CR>
+nnoremap <silent> gn :bnext<CR>
 
 " edit
 nnoremap Y y$
@@ -47,18 +48,30 @@ nnoremap ;o :edit
 
 " move
 nnoremap <silent> gt gg
-nnoremap <silent> gb G
-nnoremap <silent> gh ^
+nnoremap <silent> ge G
+nnoremap <silent> gh 0
+nnoremap <silent> gs ^
 nnoremap <silent> gl $
-nnoremap <silent> gp :bprev<CR>
-nnoremap <silent> gn :bnext<CR>
 
+nnoremap <ESC><ESC> :nohlsearch<CR>
 inoremap <silent> jj <ESC>
 inoremap <silent> jk <ESC>
 
 vnoremap < <gv
 vnoremap > >gv
 
+
+call plug#begin()
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+call plug#end()
+
+nnoremap <silent> <leader>f :Files<CR>
+nnoremap <silent> <leader>/ :Rg<CR>
+
+if filereadable(expand("~/dotfiles/.vimrc.local"))
+  source ~/dotfiles/.vimrc.local
+endif
 
 " netrw
 let g:netrw_banner = 0
