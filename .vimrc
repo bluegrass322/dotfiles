@@ -60,11 +60,12 @@ inoremap <silent> jk <ESC>
 vnoremap < <gv
 vnoremap > >gv
 
-
-call plug#begin()
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
-call plug#end()
+if ! has('nvim')
+  call plug#begin()
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+  call plug#end()
+endif
 
 nnoremap <silent> <leader>f :Files<CR>
 nnoremap <silent> <leader>/ :Rg<CR>
