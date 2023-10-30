@@ -2,6 +2,7 @@
 /.**
 
 !/.config
+!/.config/nvim/init.lua
 !/.config/starship.toml
 !/.gitignore
 !/README.md
