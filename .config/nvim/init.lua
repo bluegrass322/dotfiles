@@ -17,6 +17,43 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " " 
 
 require("lazy").setup({
-  { "github/copilot.vim", lazy=false, },
+  { "cocopon/iceberg.vim" },
+  { "github/copilot.vim", lazy=false },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+    },
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.4',
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
 })
 
+vim.cmd[[colorscheme iceberg]]
+
+-- Bufferline
+vim.opt.termguicolors = true
+require("bufferline").setup{}
+
+-- Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>f<CR>', builtin.find_files, {})
+vim.keymap.set('n', '<leader>/<CR>', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+
+-- ============================
+--   LSP
+-- ============================
+require("mason").setup()
+require("mason-lspconfig").setup()
