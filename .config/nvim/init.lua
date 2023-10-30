@@ -18,7 +18,6 @@ vim.g.mapleader = " "
 
 require("lazy").setup({
   { "cocopon/iceberg.vim" },
-  { "github/copilot.vim", lazy=false },
   {
     'akinsho/bufferline.nvim',
     version = "*",
