@@ -120,3 +120,5 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- ============================
 require("mason").setup()
 require("mason-lspconfig").setup()
+
+require("local")
