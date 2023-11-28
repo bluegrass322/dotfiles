@@ -4,6 +4,7 @@
 !/.config
 !/.config/nvim/init.lua
 !/.config/starship.toml
+!/.gitconfig
 !/.gitignore
 !/README.md
 !/starship.toml
