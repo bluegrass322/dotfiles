@@ -1,0 +1,52 @@
+[alias]
+	# add
+  patch = add --patch
+  unstage = reset HEAD
+
+	# branch
+	branches = branch
+  delete-branch = branch -d
+	rename-branch = branch -m
+
+	# checkout
+	discard = checkout --
+	burn-up = !git checkout . HEAD && git clean -d -f
+
+	# cherry-pick
+  take-in = cherry-pick --edit
+
+	# commit
+  cim = commit -m
+  uncommit = reset --soft HEAD^
+
+  review = "!func(){fetch origin pull/$1/head:$2}; func"
+
+	# log
+  log = log --pretty=format:'%Cgreen%cd  %Cred%h%Creset  %s' --date=format:'%Y%m%d %H:%M'
+  last = log -1 HEAD
+
+  pl = pull origin
+
+  # squash
+  squash = rebase --interactive HEAD~
+  unsquash = reset --hard
+
+	# stash
+	save = stash push --staged --message
+  saves = stash list
+  load = stash pop
+	delete-save = stash drop
+	peek = stash show --include-untracked --patch
+
+	# status
+  changes = status -s
+
+	# switch
+	new-branch = switch -c
+
+[core]
+	editor = nvim
+
+[include]
+  path = ~/dotfiles/.gitconfig.local
+
