@@ -2,8 +2,10 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
+
+setopt AUTO_CD
 
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
@@ -25,4 +27,4 @@ alias reload-shell='exec $SHELL -l'
 alias sheldonconfig='EDITOR=vim sheldon edit'
 alias zshconfig='vim ~/.zshrc'
 
-[ -f ./.zshrc.local ] && source ./.zshrc.local
+[ -f ~/dotfiles/.zshrc.local ] && source ~/dotfiles/.zshrc.local
