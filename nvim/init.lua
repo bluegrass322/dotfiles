@@ -80,15 +80,17 @@ vim.opt.rtp:prepend(lazypath)
 -- Make sure to set `mapleader` before lazy so your mappings are correct
 require("lazy").setup({
     {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.5',
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    },
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        opts = {}
+    };
     {
         'akinsho/bufferline.nvim',
         version = "*",
         dependencies = 'nvim-tree/nvim-web-devicons'
     },
+    { "github/copilot.vim", lazy=false, },
+    { "lewis6991/gitsigns.nvim" },
     {
         "neovim/nvim-lspconfig",
         dependencies = {
@@ -103,6 +105,16 @@ require("lazy").setup({
           { 'L3MON4D3/LuaSnip' },
           { 'saadparwaiz1/cmp_luasnip' },
         },
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {}
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.5',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
 })
 
