@@ -5,4 +5,3 @@ require('keymaps')
 require('plugin')
 
 vim.cmd("colorscheme papilio_dehaanii")
-

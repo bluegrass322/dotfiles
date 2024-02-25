@@ -10,6 +10,7 @@ setopt AUTO_CD
 autoload -Uz colors && colors
 autoload -Uz compinit && compinit
 
+export PATH="$HOME/.asdf/shims:$PATH"
 source $HOME/.cargo/env
 
 eval "$(sheldon source)"
@@ -20,11 +21,11 @@ alias gitconfig='vim ~/.gitconfig'
 # Docker
 alias compose='docker-compose'
 alias docker-containers='docker container ls'
-alias docker-lint='hadolint'
 
 # Shell
 alias reload-shell='exec $SHELL -l'
-alias sheldonconfig='EDITOR=vim sheldon edit'
+alias sheldonconfig='EDITOR=nvim sheldon edit'
 alias zshconfig='vim ~/.zshrc'
 
 [ -f ~/dotfiles/.zshrc.local ] && source ~/dotfiles/.zshrc.local
+
