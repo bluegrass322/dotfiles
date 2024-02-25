@@ -9,5 +9,7 @@
 !/.gitignore
 !/README.md
 !/starship.toml
+!/vscode.code-profile
+
 !/.vimrc
 !/.zshrc
