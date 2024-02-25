@@ -50,3 +50,5 @@
 [include]
   path = ~/dotfiles/.gitconfig.local
 
+[credential]
+	helper = store
