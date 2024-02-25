@@ -1,8 +1,9 @@
 /*
 /.**
 
-!/.config
-!/.config/nvim/init.lua
+!/nvim
+/nvim/lazy-lock.json
+
 !/.config/starship.toml
 !/.gitconfig
 !/.gitignore
