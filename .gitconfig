@@ -13,13 +13,12 @@
   burn-up = !git checkout . HEAD && git clean -d -f
 
   # cherry-pick
-  take-in = cherry-pick --edit
+  pick = cherry-pick --edit
 
   # commit
-  cim = commit -m
   uncommit = reset --soft HEAD^
 
-  review = "!func(){fetch origin pull/$1/head:$2}; func"
+  review = "!func(){ fetch origin pull/$1/head:$2 }; func"
 
   # log
   log = log --pretty=format:'%Cgreen%cd  %Cred%h%Creset  %s' --date=format:'%Y%m%d %H:%M'
@@ -39,13 +38,13 @@
   peek = stash show --include-untracked --patch
 
   # status
-  changes = status -s
+  changes = status -suall
 
   # switch
-	new-branch = switch -c
+  new-branch = switch -c
 
 [core]
-	editor = nvim
+  editor = nvim
 
 [include]
   path = ~/dotfiles/.gitconfig.local
