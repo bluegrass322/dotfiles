@@ -50,4 +50,4 @@
   path = ~/dotfiles/.gitconfig.local
 
 [credential]
-	helper = store
+  helper = store
