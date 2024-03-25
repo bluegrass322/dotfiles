@@ -1,17 +1,14 @@
 local map = vim.keymap.set
 vim.g.mapleader = " "
 
--- Explore
-map("n", "<leader>e", "<cmd>Lexplore<cr>", { desc = "File Explore" })
-
 -- Move cursor
-map("n", "ge", "G", { silent = true })
-map("n", "gh", "0", { silent = true })
-map("n", "gs", "^", { silent = true })
-map("n", "gl", "$", { silent = true })
+map("n", "ge", "G", { silent = true, desc = "Go to left window" })
+map("n", "gh", "0", { silent = true, desc = "Go to left window" })
+map("n", "gs", "^", { silent = true, desc = "Go to left window" })
+map("n", "gl", "$", { silent = true, desc = "Go to left window" })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
+map("n", "<C-h>", "<C-w>h", { remap = true, desc = "Go to left window" })
 map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
@@ -29,11 +26,6 @@ map("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
 map("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move up" })
 map("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
-
--- Buffers
-map("n", "bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
-map("n", "gp", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "gn", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next search result" })
@@ -53,3 +45,16 @@ map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 map("n", "<ESC><ESC>", "<cmd>noh<cr>", { desc = "Escape and clear hlsearch" })
 map("i", "jk", "<ESC>", {})
 
+if not vim.g.vscode then
+  map("n", "<leader>e", "<cmd>Lexplore<cr>", { desc = "File Explore" })
+
+  map("n", "bd", "<cmd>bdelete<cr>", { desc = "Close buffer" })
+  map("n", "gp", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+  map("n", "gn", "<cmd>bnext<cr>", { desc = "Next buffer" })
+else
+  local vs = require('vscode-neovim')
+
+  map("n", "bd", function() vs.call('workbench.action.closeActiveEditor') end)
+  map("n", "gp", function() vs.call('workbench.action.previousEditor') end)
+  map("n", "gn", function() vs.call('workbench.action.nextEditor') end)
+end
