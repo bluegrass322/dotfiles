@@ -5,11 +5,12 @@
 /nvim/lazy-lock.json
 
 !/.config/starship.toml
-!/.gitconfig
+!/gitconfig
 !/.gitignore
 !/README.md
 !/starship.toml
 !/vscode.code-profile
+!/wezterm.lua
 
 !/.vimrc
-!/.zshrc
+!/zshrc
