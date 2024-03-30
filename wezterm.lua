@@ -5,13 +5,11 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
--- color
 config.color_scheme = "Icy Dark (base16)"
 --config.color_scheme = 'Mono Cyan (Gogh)'
 
--- font
 config.font = wezterm.font_with_fallback({ "Intel One Mono", "PlemolJP Console NF" })
-config.font_size = 24
+config.font_size = 18
 config.line_height = 1.1
 
 config.inactive_pane_hsb = {
@@ -19,13 +17,12 @@ config.inactive_pane_hsb = {
 	brightness = 0.3,
 }
 
--- window
 config.window_background_opacity = 1
 config.window_padding = {
-	left = 50,
-	right = 50,
-	top = 50,
-	bottom = 50,
+	left = 30,
+	right = 30,
+	top = 30,
+	bottom = 30,
 }
 
 ---------------------------------------------------------------------------
