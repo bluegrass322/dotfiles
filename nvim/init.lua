@@ -1,4 +1,4 @@
-require('autocmds')
+require('commands')
 require('options')
 require('netrw')
 require('keymaps')
