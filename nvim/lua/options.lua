@@ -24,7 +24,6 @@ local options = {
   smartcase = true,
   spelllang = "en,cjk",
   smartindent = true,
-  smoothscroll = true,
   splitbelow = true,
   splitright = true,
   tabstop = 2,
