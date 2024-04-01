@@ -1,4 +1,5 @@
 return {
+  { 'RRethy/base16-nvim' },
   { 'keiyakeiya/PapilioDehaanii.vim' },
   -- { 'Badacadabra/vim-archery' },
   -- { 'AndrewLockVI/dark_ocean.vim' },
