@@ -1,7 +1,7 @@
 require('commands')
-require('options')
-require('netrw')
 require('keymaps')
-require('plugin')
+require('lazy_nvim')
+require('netrw')
+require('options')
 
 vim.cmd("colorscheme papilio_dehaanii")
