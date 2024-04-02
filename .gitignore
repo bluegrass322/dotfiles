@@ -4,6 +4,8 @@
 !/nvim
 /nvim/lazy-lock.json
 
+!/lazy_vim
+
 !/.config/starship.toml
 !/gitconfig
 !/.gitconfig
