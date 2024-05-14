@@ -12,6 +12,7 @@
 !/.gitconfig
 !/.gitignore
 !/README.md
+!/mise.toml
 !/sheldon.toml
 !/starship.toml
 !/vscode.code-profile
