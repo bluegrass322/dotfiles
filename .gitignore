@@ -1,5 +1,6 @@
 /*
 /.**
+!/.gitignore
 
 !/nvim
 /nvim/lazy-lock.json
@@ -7,19 +8,15 @@
 !/lazy_vim
 
 !/Brewfile
-!/.config/starship.toml
-!/gitconfig
-!/.gitconfig
-!/.gitignore
 !/README.md
+
+!/gitconfig
 !/mise.toml
 !/sheldon.toml
 !/starship.toml
 !/vscode.code-profile
 !/wezterm.lua
-!/.wezterm.lua
-
-!/.vimrc
 !/zprofile
 !/zshrc
-!/.zshrc
+
+!/.vimrc
