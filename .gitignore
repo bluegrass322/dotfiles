@@ -11,6 +11,7 @@
 !/.gitconfig
 !/.gitignore
 !/README.md
+!/mise.toml
 !/starship.toml
 !/vscode.code-profile
 !/wezterm.lua
