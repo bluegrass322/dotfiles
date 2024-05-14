@@ -17,5 +17,6 @@
 !/.wezterm.lua
 
 !/.vimrc
+!/zprofile
 !/zshrc
 !/.zshrc
