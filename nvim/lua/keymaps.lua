@@ -40,8 +40,10 @@ map('x', 'N', ''nN'[v:searchforward]', { expr = true, desc = 'Prev search result
 map('o', 'N', ''nN'[v:searchforward]', { expr = true, desc = 'Prev search result' })
 ]]
 
--- if not vim.g.vscode then
---   -- map('n', '<leader>bn', '<cmd>enew<cr>', { desc = 'New buffer' })
+map('n', 'b[', '<cmd>bprevious<cr>', { desc = 'Prev buffer', silent = true })
+map('n', 'b]', '<cmd>bnext<cr>', { desc = 'Next buffer', silent = true })
+
+map('n', '<leader>e', '<cmd>Lexplore<cr>', { desc = 'Open explore', silent = true })
 
 --   -- Resize window
 --   map('n', '<C-Up>', '<cmd>resize +2<cr>', { desc = 'Increase window height' })
@@ -49,101 +51,20 @@ map('o', 'N', ''nN'[v:searchforward]', { expr = true, desc = 'Prev search result
 --   map('n', '<C-Right>', '<cmd>vertical resize +2<cr>', { desc = 'Increase window width' })
 --   map('n', '<C-Left>', '<cmd>vertical resize -2<cr>', { desc = 'Decrease window width' })
 
--- else
---   local vs = require('vscode-neovim')
+if vim.g.vscode then
+  local vs = require('vscode-neovim')
+
+
+  map('n', 'b[', function() vs.call('workbench.action.previousEditor') end, { silent = true })
+  map('n', 'b]', function() vs.call('workbench.action.nextEditor') end,  { silent = true })
+
+  map('n', '<leader>e', function() vs.call('workbench.action.toggleSidebarVisibility') end, { silent = true })
+  map('n', '<leader>f', function() vs.call('workbench.action.quickOpen') end, { silent = true })
+  map('n', '<leader>/', function() vs.call('filesExplorer.findInFolder') end, { silent = true })
 
 --   -- Resize view size
 --   map('n', '<C-Up>', function() vs.call('workbench.action.increaseViewSize') end, { desc = 'Increase window height' })
 --   map('n', '<C-Down>', function() vs.call('workbench.action.decreaseViewSize') end, { desc = 'Decrease window height' })
 --   map('n', '<C-Right>', function() vs.call('workbench.action.increaseViewSize') end, { desc = 'Increase window width' })
 --   map('n', '<C-Left>', function() vs.call('workbench.action.decreaseViewSize') end, { desc = 'Decrease window width' })
--- end
-
--- VScode の場合とで実行コマンドを分けたい場合
-local vs = vim.g.vscode and require('vscode-neovim') or ''
-local keymaps = {
-  n = {
-    {
-      key = '<leader>e',
-      cmd = {
-        '<cmd>Lexplore<cr>',
-        function() vs.call('workbench.action.toggleSidebarVisibility') end,
-      },
-      opts = {
-        desc = 'File Explore',
-        silent = true,
-      },
-    },
-
-    -- Buffer
-    {
-      key = '<leader>bd',
-      cmd = {
-        '<cmd>bdelete<cr>',
-        function() vs.call('workbench.action.closeActiveEditor') end,
-      },
-      opts = {
-        desc = 'Close buffer',
-        silent = true,
-      },
-    },
-    {
-      key = '<leader>gp',
-      cmd = {
-        '<cmd>bprevious<cr>',
-        function() vs.call('workbench.action.previousEditor') end,
-      },
-      opts = {
-        desc = 'Prev buffer',
-        silent = true,
-      },
-    },
-    {
-      key = '<leader>gn',
-      cmd = {
-        '<cmd>bnext<cr>',
-        function() vs.call('workbench.action.nextEditor') end,
-      },
-      opts = {
-        desc = 'Next buffer',
-        silent = true,
-      },
-    },
-
-    -- Split window
-    {
-      key = '<leader>sph',
-      cmd = {
-        '<cmd>split<cr>',
-        function() vs.call('workbench.action.splitEditorDown') end,
-      },
-      opts = { desc = 'Split horizontal' },
-    },
-    {
-      key = '<leader>spv',
-      cmd = {
-        '<cmd>vsplit<cr>',
-        function() vs.call('workbench.action.splitEditorRight') end,
-      },
-      opts = { desc = 'Split vertical' },
-    },
-    {
-      key = '<leader>cl',
-      cmd = {
-        '<cmd>close<cr>',
-        function() vs.call('workbench.action.closeActiveEditor') end,
-      },
-      opts = { desc = 'Close current window' },
-    },
-  },
-
-  v = {
-  },
-}
-
-for mode, maps in pairs(keymaps) do
-  for i, set in ipairs(maps) do
-    local cmd = vim.g.vscode and set['cmd'][2] or set['cmd'][1]
-    map(mode, set['key'], cmd, set['opts'])
-  end
 end
