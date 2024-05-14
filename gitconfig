@@ -4,7 +4,8 @@
   unstage = reset HEAD
 
   # branch
-  branches = branch
+  branches = branch --sort=-committerdate
+  copy-branch = ! git branch --contains | cut -d ' ' -f 2 | pbcopy
   delete-branch = branch -d
   rename-branch = branch -m
 
@@ -13,19 +14,18 @@
   burn-up = !git checkout . HEAD && git clean -d -f
 
   # cherry-pick
-  take-in = cherry-pick --edit
+  pick = cherry-pick --edit
 
   # commit
   cim = commit -m
   uncommit = reset --soft HEAD^
 
-  review = "!func(){fetch origin pull/$1/head:$2}; func"
+  # diff
+  difff = diff --word-diff
 
   # log
   log = log --pretty=format:'%Cgreen%cd  %Cred%h%Creset  %s' --date=format:'%Y%m%d %H:%M'
   last = log -1 HEAD
-
-  pl = pull origin
 
   # squash
   squash = rebase --interactive HEAD~
@@ -43,12 +43,13 @@
 
   # switch
 	new-branch = switch -c
+  switch-main = ! git switch master && git pull origin master
 
 [core]
-	editor = nvim
+  editor = nvim
 
 [include]
   path = ~/dotfiles/gitconfig.local
 
 [credential]
-	helper = store
+  helper = store
