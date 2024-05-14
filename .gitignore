@@ -12,6 +12,7 @@
 !/.gitconfig
 !/.gitignore
 !/README.md
+!/sheldon.toml
 !/starship.toml
 !/vscode.code-profile
 !/wezterm.lua
