@@ -28,7 +28,7 @@ local options = {
   splitright = true,
   tabstop = 2,
   termguicolors = true,
-  timeoutlen = 200,
+  timeoutlen = 1000,
   undofile = true,
   undolevels = 1000,
   virtualedit = "block",
@@ -38,4 +38,3 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
-
