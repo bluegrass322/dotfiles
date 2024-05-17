@@ -47,20 +47,24 @@ local only_vim = {
   },
 
   -- UI
-	{ "oahlen/iceberg.nvim" },
-	-- { "RRethy/base16-nvim" },
-	-- { "keiyakeiya/PapilioDehaanii.vim" },
-	-- { 'Badacadabra/vim-archery' },
-	-- { 'AndrewLockVI/dark_ocean.vim' },
-	-- { 'neg-serg/neg.nvim' },
-	-- { 'lunacookies/vim-substrata' },
+  {
+    "oahlen/iceberg.nvim",
+    config = function()
+      vim.cmd("colorscheme iceberg")
+    end,
+  },
+  -- { "RRethy/base16-nvim" },
+  -- { "keiyakeiya/PapilioDehaanii.vim" },
+  -- { 'Badacadabra/vim-archery' },
+  -- { 'AndrewLockVI/dark_ocean.vim' },
+  -- { 'neg-serg/neg.nvim' },
+  -- { 'lunacookies/vim-substrata' },
   {
     'akinsho/bufferline.nvim',
     event = "VeryLazy",
     version = "*",
     dependencies = 'nvim-tree/nvim-web-devicons',
-    opts = {
-    },
+    opts = {},
     config = function(_, opts)
       require("bufferline").setup()
     end,
@@ -131,7 +135,7 @@ local only_vim = {
       },
     },
     config = function(_, opts)
-      require'nvim-treesitter.configs'.setup(opts)
+      require("nvim-treesitter.configs").setup(opts)
     end,
   }
 }
