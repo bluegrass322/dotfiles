@@ -1,24 +1,34 @@
+export LANG=ja_JP.UTF-8
+
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=10_000
+SAVEHIST=10_000
 HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
 HIST_STAMPS="yyyy-mm-dd"
 
-setopt AUTO_CD
 setopt EXTENDED_HISTORY
-setopt INC_APPEND_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
+setopt HIST_SAVE_NO_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_NO_STORE
-setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
+setopt NO_HIST_BEEP
+setopt SHARE_HISTORY
 
-bindkey -e
+setopt AUTO_CD
+setopt AUTO_PUSHD
+setopt EXTENDED_GLOB
+setopt NO_BEEP
+setopt PUSHD_IGNORE_DUPS
 
-autoload -Uz colors && colors
+setopt PRINT_EIGHT_BIT
+
+zstyle ":completion:*" matcher-list "m:{a-z}={A-Z}"
+zstyle ":completion:*:processes" command "ps x -o pid,s,args"
+
 autoload -Uz compinit && compinit
+autoload -Uz colors && colors
+bindkey -e
 
 eval "$(mise activate zsh)"
 eval "$(sheldon source)"
