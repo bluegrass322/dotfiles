@@ -1,0 +1,25 @@
+[tasks]
+
+[shell_alias]
+reload-shell = "exec $SHELL -l"
+
+mkdir = "mkdir -p"
+mv = "mv -i"
+rm = "printf 'WARN: rm is dangerous command! Use trash instead\n'"
+
+brew-bundle = "brew bundle --file ~/dotfiles/Brewfile"
+brew-clean = "brew bundle --file ~/dotfiles/Brewfile --cleanup"
+compose = "docker compose"
+
+[env]
+EDITOR = "nvim"
+
+[tools]
+neovim = "latest"
+starship = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["python", "node"]
+
+[settings.ruby]
+compile = false

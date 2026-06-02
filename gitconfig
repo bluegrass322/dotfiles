@@ -8,6 +8,7 @@
   copy-branch = ! git branch --contains | cut -d ' ' -f 2 | pbcopy
   delete-branch = branch -d
   rename-branch = branch -m
+  show-parent = ! git show-branch | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -1 | awk -F'[]~^[]' '{print $2}'
 
   # checkout
   discard = checkout --
@@ -17,7 +18,6 @@
   pick = cherry-pick --edit
 
   # commit
-  cim = commit -m
   uncommit = reset --soft HEAD^
 
   # diff
@@ -42,11 +42,16 @@
   changes = status -s
 
   # switch
-	new-branch = switch -c
-  switch-main = ! git switch master && git pull origin master
+  new-branch = switch -c
+  switch-main = ! git switch main && git pull origin main
+  switch-shelter = switch -c do-something
+
+  # worktree
+  deliquesce = worktree add -b
 
 [core]
   editor = nvim
+  hooksPath = ~/dotfiles/git/hooks
 
 [include]
   path = ~/dotfiles/gitconfig.local
