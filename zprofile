@@ -1,2 +1,1 @@
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(mise activate zsh --shims)"
+[ -f ~/dotfiles/zprofile.local ] && source ~/dotfiles/zprofile.local
