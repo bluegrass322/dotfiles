@@ -1,0 +1,17 @@
+# mayuzumi (黛)
+background = #04141A
+foreground = #0FA3BD
+cursor-color = #2DD4BF
+cursor-text = #1A1A1A
+selection-background = #086776
+selection-foreground = #F5F0E8
+
+# Normal ANSI colours (0-7) — teal ramp, exception: 0 (base)
+palette = 0=#1A1A1A
+palette = 1=#EF4444
+palette = 2=#10C5E5
+palette = 3=#0A7B8F
+palette = 4=#086776
+palette = 5=#0C90A7
+palette = 6=#0FB9D7
+palette = 7=#40D7F2
